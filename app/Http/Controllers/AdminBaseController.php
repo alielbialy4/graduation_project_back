@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminBaseController extends BaseController
 {
-    use AuthorizesRequests, ValidatesRequests;
+    // use AuthorizesRequests, ValidatesRequests;
     protected $service;
     protected $UpdateRequest;
     protected $StoreRequest;
