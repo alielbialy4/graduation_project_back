@@ -36,7 +36,7 @@ class DevicesService extends Store
 
     public function storeData()
     {
-        $this->store(["name"],
+        $this->store(["name" , 'room_id'],
             [],
             "",
             ''
