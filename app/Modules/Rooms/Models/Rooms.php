@@ -29,8 +29,8 @@ class Rooms extends Model
     public    $timestamps = true;
 
     // relation with devices
-    public function devices()
-    {
-        return $this->hasMany(Devices::class, 'room_id', 'id');
-    }
+    // public function devices()
+    // {
+    //     return $this->hasMany(Devices::class, 'room_id', 'id');
+    // }
 }
