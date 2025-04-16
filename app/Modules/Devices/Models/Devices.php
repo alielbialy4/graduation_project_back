@@ -4,7 +4,6 @@ namespace App\Modules\Devices\Models;
 
 use App\Modules\Rooms\Models\Rooms;
 use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -28,8 +27,8 @@ class Devices extends Model
         });
     }
 
-    public function rooms()
-    {
-        return $this->belongsTo(Rooms::class, 'room_id', 'id');
-    }
+    // public function rooms()
+    // {
+    //     return $this->belongsTo(Rooms::class, 'room_id', 'id');
+    // }
 }
