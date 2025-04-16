@@ -20,8 +20,8 @@ class RoomsResource extends JsonResource
             'id'                => $this->id,
             'name'              => $this->name,
             'devices'           => DevicesResource::collection($this->devices),
-            'created_at'        => $this->created_at,
-            'updated_at'        => $this->updated_at,
+            'created_at'        => $this->created_at ? $this->created_at->format('Y-m-d H:i:s') : null,
+            'updated_at'        => $this->updated_at ? $this->updated_at->format('Y-m-d H:i:s') : null,
         ];
     }
 }
