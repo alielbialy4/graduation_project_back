@@ -11,18 +11,18 @@ use Illuminate\Database\Eloquent\Builder;
 class Rooms extends Model
 {
 
-    protected static function boot()
-    {
-        parent::boot();
+    // protected static function boot()
+    // {
+    //     parent::boot();
 
-        static::addGlobalScope('ForRooms', function (Builder $builder) {
-            $builder->where('user_id', Auth::guard('sanctum')?->user()?->id);
-        });
+    //     static::addGlobalScope('ForRooms', function (Builder $builder) {
+    //         $builder->where('user_id', Auth::guard('sanctum')?->user()?->id);
+    //     });
 
-        static::creating(function (Rooms $Rooms) {
-            $Rooms->user_id = Auth::guard('sanctum')?->user()?->id;
-        });
-    }
+    //     static::creating(function (Rooms $Rooms) {
+    //         $Rooms->user_id = Auth::guard('sanctum')?->user()?->id;
+    //     });
+    // }
 
     protected $table   = 'rooms';
     protected $guarded = [];
