@@ -29,7 +29,7 @@ class RoomsService extends Store
     public function GetAll()
     {
         return $this->Get(
-            ["rooms.id", "name" , "user_id", "rooms.created_at", "rooms.updated_at"],
+            ["rooms.id", "name", "rooms.created_at", "rooms.updated_at"],
             []
         );
     }
@@ -71,7 +71,7 @@ class RoomsService extends Store
     {
 
         $this->update(
-            ['name' , "user_id"],
+            ['name'],
             [],
             "",
             $id,
