@@ -5,6 +5,7 @@ namespace App\Modules\Devices\Resources;
 use Illuminate\Http\Request;
 use App\Modules\Rooms\Resources\RoomsResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Modules\Rooms\Resources\SimpleRoomsResource;
 
 class DevicesEditResource extends JsonResource
 {
