@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Modules\Rooms\Services;
+namespace App\Modules\Devices\Services;
 
 use App\Services\Store;
-use App\Modules\Rooms\Models\Rooms;
-use App\Modules\Rooms\Resources\RoomsResource;
-use App\Modules\Rooms\Resources\RoomsEditResource;
+use App\Modules\Devices\Models\Devices;
+use App\Modules\Devices\Resources\DevicesResource;
+use App\Modules\Devices\Resources\DevicesEditResource;
 
-class RoomsService extends Store
+class DevicesService extends Store
 {
     protected $error;
     protected $success;
@@ -16,20 +16,20 @@ class RoomsService extends Store
 
     public function __construct()
     {
-        $this->resource = RoomsResource::class;
+        $this->resource = DevicesResource::class;
         //set messages
-        $this->error   = 'there is no Rooms';
-        $this->success = 'All Rooms retrieved successfully';
-        $this->saved   = 'Room created successfully';
-        $this->updated = 'Room updated successfully';
+        $this->error   = 'there is no Devices';
+        $this->success = 'All Devices retrieved successfully';
+        $this->saved   = 'Device created successfully';
+        $this->updated = 'Device updated successfully';
 
-        parent::__construct(new Rooms());
+        parent::__construct(new Devices());
     }
 
     public function GetAll()
     {
         return $this->Get(
-            ["rooms.id", "name" , "user_id", "rooms.created_at", "rooms.updated_at"],
+            ["devices.id", "name" , "user_id", "room_id", "devices.created_at", "devices.updated_at"],
             []
         );
     }
@@ -49,9 +49,9 @@ class RoomsService extends Store
     {
 
         if (isset($id) && is_int($id)) {
-            $data = Rooms::where('id', $id)->first();
+            $data = Devices::where('id', $id)->first();
             if ($data != null)
-                $this->data = RoomsEditResource::make($data);
+                $this->data = DevicesEditResource::make($data);
         }
         return __('room retrieved successfully');
     }
@@ -60,9 +60,9 @@ class RoomsService extends Store
     {
 
         if (isset($id) && is_int($id)) {
-            $data = Rooms::where('id', $id)->first();
+            $data = Devices::where('id', $id)->first();
             if ($data != null)
-                $this->data = RoomsEditResource::make($data);
+                $this->data = DevicesEditResource::make($data);
         }
         return __('room retrieved successfully');
     }
@@ -71,7 +71,7 @@ class RoomsService extends Store
     {
 
         $this->update(
-            ['name' , "user_id"],
+            ['name' , 'room_id', "user_id"],
             [],
             "",
             $id,

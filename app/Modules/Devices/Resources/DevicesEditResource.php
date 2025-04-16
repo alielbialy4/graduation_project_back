@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Modules\Rooms\Resources;
+namespace App\Modules\Devices\Resources;
 
 use Illuminate\Http\Request;
+use App\Modules\Rooms\Resources\RoomsResource;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Modules\Devices\Resources\DevicesResource;
 
-class RoomsResource extends JsonResource
+class DevicesEditResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,11 +15,11 @@ class RoomsResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-
         return [
             'id'                => $this->id,
             'name'              => $this->name,
-            'devices'           => DevicesResource::collection($this->devices),
+            'room_id'           => $this->room_id,
+            'room'              => new RoomsResource($this->rooms),
             'created_at'        => $this->created_at,
             'updated_at'        => $this->updated_at,
         ];
