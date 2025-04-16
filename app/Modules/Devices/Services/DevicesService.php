@@ -29,7 +29,7 @@ class DevicesService extends Store
     public function GetAll()
     {
         return $this->Get(
-            ["devices.id", "name" , "user_id", "room_id", "devices.created_at", "devices.updated_at"],
+            ["devices.id", "name", "room_id", "devices.created_at", "devices.updated_at"],
             []
         );
     }
@@ -71,7 +71,7 @@ class DevicesService extends Store
     {
 
         $this->update(
-            ['name' , 'room_id', "user_id"],
+            ['name' , 'room_id'],
             [],
             "",
             $id,
