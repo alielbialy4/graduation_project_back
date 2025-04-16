@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Modules\Devices\Resources;
+namespace App\Modules\Rooms\Resources;
 
 use Illuminate\Http\Request;
-use App\Modules\Rooms\Resources\RoomsResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Modules\Devices\Resources\DevicesResource;
 
-class DevicesEditResource extends JsonResource
+class SimpleRoomsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,8 +18,6 @@ class DevicesEditResource extends JsonResource
         return [
             'id'                => $this->id,
             'name'              => $this->name,
-            'room_id'           => $this->room_id,
-            'room'              => new SimpleRoomsResource($this->rooms),
             'created_at'        => $this->created_at ? $this->created_at->format('Y-m-d H:i:s') : null,
             'updated_at'        => $this->updated_at ? $this->updated_at->format('Y-m-d H:i:s') : null,
         ];
