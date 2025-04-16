@@ -22,7 +22,7 @@ class AdminController extends Controller
     // index
     public function index()
     {
-        dd('index');
+        // dd('index');
         $rooms = Rooms::all();
         return $this->sendResponse(RoomsResource::collection($rooms), 'Rooms retrieved successfully');
     }
