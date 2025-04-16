@@ -27,8 +27,8 @@ class Devices extends Model
         });
     }
 
-    // public function rooms()
-    // {
-    //     return $this->belongsTo(Rooms::class, 'room_id', 'id');
-    // }
+    public function rooms()
+    {
+        return $this->belongsTo(Rooms::class, 'room_id', 'id');
+    }
 }
