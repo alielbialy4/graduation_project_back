@@ -4,6 +4,7 @@ namespace App\Modules\AdminAuth\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Modules\AdminAuth\Models\Admin;
 use App\Modules\AdminAuth\Requests\LoginRequest;
@@ -34,6 +35,17 @@ class AuthController extends Controller
         }
 
         return $this->sendError(__('api.Incorrect Email or password'));
+    }
+
+
+    // show profile
+    public function profile(): JsonResponse
+    {
+        $user = Auth::guard('sanctum')?->user();
+        if (!$user) {
+            return $this->sendError(__('api.User not found'));
+        }
+        return $this->sendResponse(AdminResource::make($user), __('api.User data'));
     }
 
 }

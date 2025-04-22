@@ -8,5 +8,4 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/mcp/users/{id}', [adminController::class, 'show']);
     // delete user
     Route::delete('/mcp/users/{id}', [adminController::class, 'delete']);
-
 });
