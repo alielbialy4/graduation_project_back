@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Modules\Mcp_Users\Resources;
+namespace App\Modules\AdminAuth\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UsersResource extends JsonResource
+class AdminResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,12 +16,10 @@ class UsersResource extends JsonResource
     {
         return [
             'id'          => $this->id,
-            'name'        => $this->name,
+            'first_name'  => $this->first_name,
+            'last_name'   => $this->last_name,
             'email'       => $this->email,
-            'guard'       => $this->guard,
             'token'       => $this->token,
-            'created_at'  => $this->created_at ? $this->created_at->format('Y-m-d H:i:s') : null,
-            'updated_at'  => $this->updated_at ? $this->updated_at->format('Y-m-d H:i:s') : null,
         ];
     }
 }
